@@ -6,7 +6,7 @@ A [Chassis](https://github.com/Chassis/Chassis) extension to install and configu
 This Chassis extension installs and activates Query Monitor using Puppet and WP-CLI.
 
 ## Usage
-1. Clone Chassis `git clone --recursive https://github.com/Chassis/Chassis querymonitor`
-2. Add this extension to your extensions directory `cd themereview && git clone git@github.com:Chassis/querymonitor.git extensions/querymonitor`
+1. Clone Chassis `git clone --recursive https://github.com/Chassis/Chassis chassis`
+2. Add this extension to your extensions directory `cd chassis && git clone git@github.com:Chassis/Query-Monitor.git extensions/querymonitor`
 3. Run `vagrant provision`
 4. Fin!
