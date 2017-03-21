@@ -1,15 +1,15 @@
 # Install the Query Monitor plugin
 class querymonitor (
-  $path = "/vagrant/extensions/querymonitor"
+  $path = '/vagrant/extensions/querymonitor'
 ) {
   if ! ( File['/vagrant/content'] ) {
     file { '/vagrant/content':
-      ensure => "directory",
+      ensure => 'directory',
     }
   }
   if ! ( File['/vagrant/content/plugins'] ) {
     file { '/vagrant/content/plugins':
-      ensure => "directory",
+      ensure => 'directory',
     }
   }
   wp::plugin { 'query-monitor':
