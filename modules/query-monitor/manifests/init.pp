@@ -20,8 +20,6 @@ class query-monitor (
 		$base_location = $location
 	}
 
-	notice($base_location)
-
 	if !( File["${content_location}"] ) {
 		file { "${content_location}":
 		  ensure => 'directory',
@@ -36,18 +34,18 @@ class query-monitor (
 	wp::plugin { 'query-monitor':
 		ensure   => enabled,
 		location => "${base_location}/wp",
-		require  => [ Class['wp'], Service["php${short_ver}-fpm"] ],
+		require  => Chassis::Wp[ $config['hosts'][0] ]
 	}
 
 	file { "${content_location}/db.php":
 		ensure  => 'link',
 		target  => "${content_location}/plugins/query-monitor/wp-content/db.php",
-		require => Wp::Plugin['query-monitor'],
+		require => Chassis::Wp[ $config['hosts'][0] ],
 	}
 
 	exec { "/usr/bin/wp cap add 'administrator' 'view_query_monitor'":
 		user    => 'www-data',
-		require => [ Class['wp'], Wp::Plugin['query-monitor'] ],
+		require => [ Chassis::Wp[ $config['hosts'][0] ], Wp::Plugin['query-monitor'] ],
 		cwd     => "${base_location}/wp",
 	}
 }
