@@ -5,6 +5,7 @@ class query-monitor (
 	$content_location = $config[mapped_paths][content],
 	$location =  $config[mapped_paths][base]
 ) {
+	# Get the PHP variables we need.
 	if versioncmp($config[php], '5.4') <= 0 {
 		$php_package = 'php5'
 	} else {
@@ -12,6 +13,7 @@ class query-monitor (
 		$php_package = 'php'
 	}
 
+	# Setup the base paths for custom Chassis paths.
 	if ( $location != '/vagrant' ) {
 		$base_location = "${location}/chassis"
 	} else {
