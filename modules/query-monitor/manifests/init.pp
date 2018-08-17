@@ -20,8 +20,8 @@ class query-monitor (
 		$base_location = $location
 	}
 
-	if !( File["${content_location}"] ) {
-		file { "${content_location}":
+	if !( File[$content_location] ) {
+		file { $content_location:
 		  ensure => 'directory',
 		}
 	}
