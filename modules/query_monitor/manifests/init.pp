@@ -1,7 +1,7 @@
 # Install the Query Monitor plugin
 class query_monitor (
 	$config,
-	$path = '/vagrant/extensions/query-monitor',
+	$path = '/vagrant/extensions/query_monitor',
 	$content_location = $config[mapped_paths][content],
 	$location =  $config[mapped_paths][base]
 ) {
