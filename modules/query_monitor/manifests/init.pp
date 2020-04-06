@@ -42,10 +42,4 @@ class query_monitor (
 		target  => "${content_location}/plugins/query-monitor/wp-content/db.php",
 		require => Chassis::Wp[ $config['hosts'][0] ],
 	}
-
-	exec { "/usr/bin/wp cap add 'administrator' 'view_query_monitor'":
-		user    => 'www-data',
-		require => [ Chassis::Wp[ $config['hosts'][0] ], Wp::Plugin['query-monitor'] ],
-		cwd     => "${base_location}/wp",
-	}
 }
